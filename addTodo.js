@@ -15,5 +15,5 @@ let addTodos = fs.existsSync(filePath)
         });
         fs.writeFileSync("addTodo.json", JSON.stringify(addTodos, null, 4));
         console.log("Added successfully!")
-    } else console.log("Enter title. Try again!");
+    } else console.log("Enter userID and title. Try again!");
 }());
