@@ -1,0 +1,21 @@
+{
+  "name": "js-addinfostojsonfile",
+  "version": "1.0.0",
+  "main": "addTodo.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IkramovAmir/js-addInfosToJsonFile.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IkramovAmir/js-addInfosToJsonFile/issues"
+  },
+  "homepage": "https://github.com/IkramovAmir/js-addInfosToJsonFile#readme",
+  "description": ""
+}

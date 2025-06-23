@@ -1,19 +1,20 @@
-let fs = require("fs");
-let filePath = "addTodo.json";
+import fs from "fs";
 
-let addTodos = fs.existsSync(filePath)
-    ? JSON.parse(fs.readFileSync(filePath, "utf8"))
-    : [];
+let users = JSON.parse(fs.readFileSync("db/addUser.json", "utf-8"));
+let todos = JSON.parse(fs.readFileSync("db/addTodo.json", "utf-8"));
+console.log(process.argv)
 
 ;(function () {
-    if (process.argv.length >= 4) {
         let [, , userId, ...t] = process.argv;
-        addTodos.push({
-            id: addTodos.length + 1,
-            userId,
-            title: t.join(" ")
-        });
-        fs.writeFileSync("addTodo.json", JSON.stringify(addTodos, null, 4));
+        if (!users.some(user => user.id == userId)) throw new Error("User is not found!")
+        if (process.argv.length >= 4) {
+            todos.push({
+                id: todos.length + 1,
+                userId,
+                title: t.join(" ")
+            });
+        }else throw new Error("Enter userID and title. Try again!");
+
+        fs.writeFileSync("db/addTodo.json", JSON.stringify(todos, null, 4));
         console.log("Added successfully!")
-    } else console.log("Enter userID and title. Try again!");
 }());

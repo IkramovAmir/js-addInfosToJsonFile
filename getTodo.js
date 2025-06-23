@@ -1,11 +1,9 @@
-const {
-    count
-} = require("console");
+import fs from "fs";
 
 (function () {
     try {
         let [, , command] = process.argv;
-        let listTodos = require("./addTodo.json");
+        let listTodos = JSON.parse(fs.readFileSync("db/addTodo.json", "utf-8"));
 
         if (process.argv.length == 2) {
             console.log(listTodos);

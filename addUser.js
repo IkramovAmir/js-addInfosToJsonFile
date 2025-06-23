@@ -1,20 +1,18 @@
-let fs = require("fs");
-let filePath = "addUser.json";
-
-let arrUser = fs.existsSync(filePath)
-  ? JSON.parse(fs.readFileSync(filePath, "utf8"))
-  : [];
-
+import fs from "fs";
+let users = JSON.parse(fs.readFileSync("db/addUser.json", "utf-8"));
 (function () {
     let [, , command] = process.argv;
     if (command) {
-        arrUser.push({
-            id: arrUser.length + 1,
+        users.push({
+            id: users.length + 1,
             name: command
         });
-        fs.writeFileSync("addUser.json", JSON.stringify(arrUser, null, 4));
+        if (!isNaN(Number(command))) {
+            throw new Error("enter string")
+        }
+        fs.writeFileSync("db/addUser.json", JSON.stringify(users, null, 4));
         console.log("Added successfully!");
     } else {
-        console.log("Enter a name.");
-    }
+        throw new Error("Enter a name!");
+    };
 })();
