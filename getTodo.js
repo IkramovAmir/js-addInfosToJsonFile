@@ -9,15 +9,16 @@ import fs from "fs";
             console.log(listTodos);
         } else if (process.argv.length == 3) {
             for (let todo of listTodos) {
-                let count = 0;
                 if (todo.userId == command) {
-                    count++;
                     console.log(todo);
                 }
             }
-            if (count) console.log("UserId is not found!")
         }
     } catch (error) {
         console.error("Xatolik yuz berdi:", error.message);
     }
 }());
+
+// commands
+// 1.node getTodo  (for all)
+// 2.node getTodo userId

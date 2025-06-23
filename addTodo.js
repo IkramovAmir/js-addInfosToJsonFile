@@ -2,7 +2,6 @@ import fs from "fs";
 
 let users = JSON.parse(fs.readFileSync("db/addUser.json", "utf-8"));
 let todos = JSON.parse(fs.readFileSync("db/addTodo.json", "utf-8"));
-console.log(process.argv)
 
 ;(function () {
         let [, , userId, ...t] = process.argv;
@@ -18,3 +17,6 @@ console.log(process.argv)
         fs.writeFileSync("db/addTodo.json", JSON.stringify(todos, null, 4));
         console.log("Added successfully!")
 }());
+
+// commands
+// 1.node addTodo userId title

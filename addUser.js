@@ -16,3 +16,6 @@ let users = JSON.parse(fs.readFileSync("db/addUser.json", "utf-8"));
         throw new Error("Enter a name!");
     };
 })();
+
+// commands
+// 1.node addUser name
